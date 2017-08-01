@@ -1,6 +1,5 @@
 *.iml
 .idea
-dependency-reduced-pom.xml
 *.class
 
 # Mobile Tools for Java (J2ME)
@@ -14,3 +13,6 @@ dependency-reduced-pom.xml
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /target/
+
+#maven
+dependency-reduced-pom.xml
