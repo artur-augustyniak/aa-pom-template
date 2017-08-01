@@ -5,6 +5,7 @@ import com.google.code.tempusfugit.concurrency.ConcurrentTestRunner;
 import com.google.code.tempusfugit.concurrency.RepeatingRule;
 import com.google.code.tempusfugit.concurrency.annotations.Concurrent;
 import com.google.code.tempusfugit.concurrency.annotations.Repeating;
+import com.google.common.base.Optional;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
@@ -26,7 +27,7 @@ public class MyAppTest {
     /**
      * Expected  Sn = (a1 + an/2) * n
      */
-    private static final int EXPECTED_PROGRESSION_SUM = (int)(
+    private static final int EXPECTED_PROGRESSION_SUM = (int) (
             ((CYCLES * THREADS - 1) / 2.0f) * CYCLES * THREADS
     );
 
@@ -67,5 +68,13 @@ public class MyAppTest {
         System.out.println("Expected sum: " + EXPECTED_PROGRESSION_SUM);
         assertEquals(EXPECTED_PROGRESSION_SUM, progressionSum.get());
     }
+
+
+    @Test
+    public void testAbsenceAnticipation() {
+        Optional op = app.anticipateAbsenceWithGuava();
+        assertEquals(5, op.get());
+    }
+
 
 }
